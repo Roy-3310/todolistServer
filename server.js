@@ -52,10 +52,10 @@ const requestListener = (req, res) => {
           );
           res.end();
         } else {
-          errHandle(res);
+          errHandle(res, "title 欄位為必填");
         }
       } catch (error) {
-        errHandle(res);
+        errHandle(res, "資料格式錯誤，請確認 JSON 格式是否正確");
       }
     });
   } else if (req.url == "/todos" && req.method == "DELETE") {
@@ -87,7 +87,7 @@ const requestListener = (req, res) => {
       );
       res.end();
     } else {
-      errHandle(res);
+      errHandle(res, "找不到對應的 todo id");
     }
   } else if (req.url.startsWith("/todos/") && req.method == "PATCH") {
     req.on("end", () => {
@@ -95,21 +95,24 @@ const requestListener = (req, res) => {
         const todo = JSON.parse(body).title;
         const id = req.url.split("/").pop();
         const index = todos.findIndex((element) => element.id === id);
-        if (todo !== undefined && index !== -1) {
+        if (index === -1) {
+          errorHandle(res, "找不到對應的 todo id");
+        } else if (todo === undefined) {
+          errorHandle(res, "title 欄位為必填");
+        } else {
           todos[index].title = todo;
           res.writeHead(200, headers);
           res.write(
             JSON.stringify({
               status: "success",
               data: todos,
+              message: "更新成功",
             }),
           );
           res.end();
-        } else {
-          errHandle(res);
         }
-      } catch {
-        errHandle(res);
+      } catch (error) {
+        errorHandle(res, "資料格式錯誤，請確認 JSON 格式是否正確");
       }
     });
   } else {

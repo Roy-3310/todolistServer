@@ -103,7 +103,7 @@ const requestListener = (req, res) => {
     res.write(
       JSON.stringify({
         status: "false",
-        message: "無此網站路由",
+        message: "網頁遺失了",
       }),
     );
     res.end();
