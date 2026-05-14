@@ -1,0 +1,161 @@
+{
+  "info": {
+    "_postman_id": "7580eacf-9c39-47a7-90d7-a2429b0f4166",
+    "name": "todolist-本地端",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46763660",
+    "_collection_link": "https://go.postman.co/collection/46763660-7580eacf-9c39-47a7-90d7-a2429b0f4166?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "取得所有todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:3005/todos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3005",
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增單筆代辦",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\":\"今天要洗臉00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:3005/todos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3005",
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除所有代辦",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:3005/todos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3005",
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除單筆代辦",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:3005/todos/3663e5ae-4a0f-4f55-9e23-a27d5d8e2699",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3005",
+          "path": [
+            "todos",
+            "3663e5ae-4a0f-4f55-9e23-a27d5d8e2699"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "編輯單筆代辦",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\":\"修改內容2\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:3005/todos/376c230f-774a-4630-9094-82e231536d3",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "3005",
+          "path": [
+            "todos",
+            "376c230f-774a-4630-9094-82e231536d3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "遠端",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://todolistserver-wp4h.onrender.com/todos",
+          "protocol": "https",
+          "host": [
+            "todolistserver-wp4h",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "todos"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
