@@ -5,7 +5,7 @@ function successHandle(res, data, message) {
   res.write(
     JSON.stringify({
       status: "success",
-      data: todos,
+      data,
       ...message,
     }),
   );
